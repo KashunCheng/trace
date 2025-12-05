@@ -1,0 +1,15 @@
+[project]
+name = "final-example"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "coverage>=7.12.0",
+    "ipykernel>=7.1.0",
+    "ipywidgets>=8.1.8",
+    "trl==0.22.2",
+    "unsloth>=2025.11.6",
+    "vllm>=0.11.0,<0.12.0",
+    "z3-solver>=4.15.4.0",
+]
