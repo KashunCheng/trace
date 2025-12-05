@@ -1,4 +1,5 @@
 import json
+import random
 import subprocess
 from pathlib import Path
 from z3 import Ints, Solver, And, Not, If, BoolVal, sat
@@ -131,10 +132,10 @@ def verify_trace(trace, target_line=47):
     # 6. coverage based method scoring (f1)
 
     m = s.model()
-    mode_val = m[mode].as_long()
+    mode_val = m[mode].as_long() if m[mode] is not None else random.randint(1,3)
     temp_val = m[temp].as_long() if m[temp] is not None else 999
     user_level_val = m[user_level].as_long() if m[user_level] is not None else 999
-    emergency_val = m[emergency].as_long()
+    emergency_val = m[emergency].as_long() if m[temp] is not None else bool(random.randint(0,1))
 
     script_dir = Path(__file__).resolve().parent
     coverage_file = script_dir / '.coverage'
